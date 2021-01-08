@@ -5,7 +5,7 @@ const Accordion =({items})=>{
   const[activeIndex,setActiveIndex] = useState(null);
   const onTitleClick = (index)=>{
     setActiveIndex(index);
-    console.log('tothle clicked',index);
+    // console.log('tothle clicked',index);
   }
 
   const renderedItems = items.map((item,index)=>{
