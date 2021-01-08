@@ -3,6 +3,8 @@ import Accordion from './components/Accordion';
 import Search from './components/Search';
 import Dropdown from './components/Dropdown';
 import Translate from './components/Translate';
+import Route from './components/Route';
+import Header from './components/Header';
 const items =[
     {
         title:'Wha is React?',
@@ -32,23 +34,36 @@ const options = [
         label:'The Color Blue',
         value:"blue"
     }
-]
+];
+
+
 export default ()=>{
 
-    // const[selected,setSelected]= useState(options[0]);
-    // const [showDropdown,setShowDropdown] = useState(true);
+    const[selected,setSelected]= useState(options[0]);
+    const [showDropdown,setShowDropdown] = useState(true);
 
     return (
     <div>
-        {/* <button onClick={()=> setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
+        <Header/>
+        <Route path="/">
+            <Accordion items={items}/>
+        </Route>
+        <Route path="/list">
+            <Search />
+        </Route>
+        <Route path="/dropdown">
+            <button onClick={()=> setShowDropdown(!showDropdown)}>Toggle Dropdown</button>
      {showDropdown ?
          <Dropdown  
      selected={selected}
      onSelectedChange={setSelected}
        options={options} 
       />:null
-     } */}
-     <Translate/>
+     }
+        </Route>
+        <Route path="/translate">
+            <Translate/>
+        </Route>
     </div>
         );
 };
